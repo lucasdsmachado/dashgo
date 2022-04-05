@@ -13,11 +13,9 @@ export function makeServer() {
       user: Model.extend<Partial<User>>({})
     },
 
-
-// gerar dados em massa
     factories: {
       user: Factory.extend({
-        name(i) {
+        name(i : number) {
           return `User ${i + 1}`
         },
         email() {
@@ -28,8 +26,6 @@ export function makeServer() {
         },
       })
     },
-
-  // criar dados assim que o mirage é iniciado
 
     seeds(server) {
       server.createList('user', 10);
